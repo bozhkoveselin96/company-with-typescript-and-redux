@@ -3,5 +3,7 @@ export enum ActionTypes {
     GET_ONE = "GET_ONE",
     CREATE = "CREATE",
     UPDATE = "UPDATE",
-    DELETE = "DELETE"
+    DELETE = "DELETE",
+    CHANGE_FIELD = "CHANGE_FIELD",
+    UPDATE_ID = "UPDATE_ID"
 }

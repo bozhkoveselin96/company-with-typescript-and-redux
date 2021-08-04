@@ -1,9 +1,14 @@
 import {ActionTypes} from "../types/action";
 import {EmployeeType} from "../types/employee";
 
+interface UpdateIdAction {
+    type: ActionTypes.UPDATE_ID,
+    employees: EmployeeType[]
+}
+
 interface GetAllAction {
     type: ActionTypes.GET_ALL,
-    payload: EmployeeType[]
+    employees: EmployeeType[]
 }
 
 interface GetOneAction {
@@ -23,7 +28,12 @@ interface UpdateAction {
 
 interface DeleteAction {
     type: ActionTypes.DELETE,
-    payload: EmployeeType
+    employee: EmployeeType
 }
 
-export type Action = GetAllAction | GetOneAction | CreateAction | UpdateAction | DeleteAction;
+interface ChangeFieldAction {
+    employees: any;
+    type: ActionTypes.CHANGE_FIELD
+}
+
+export type Action = GetAllAction | GetOneAction | CreateAction | UpdateAction | DeleteAction | ChangeFieldAction | UpdateIdAction;

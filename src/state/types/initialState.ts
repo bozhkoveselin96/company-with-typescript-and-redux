@@ -1,8 +1,7 @@
 import {EmployeeType} from "./employee";
 
 export type InitialStateType = {
-    employees: {
-        all: EmployeeType[] | [],
-        selected: EmployeeType | {}
-    },
+    all: EmployeeType[] | [],
+    selected: EmployeeType | {},
+    lastId: number
 }

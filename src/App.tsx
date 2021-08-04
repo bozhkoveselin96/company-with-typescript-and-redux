@@ -5,15 +5,31 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import {List} from "./components/List/List";
+import {useDispatch, useSelector} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actionCreators, State} from "./state"
 
 function App() {
+  const dispatch = useDispatch();
+
+  const {
+      getAllEmployees,
+      getEmployee,
+      createEmployee,
+      updateEmployee,
+      deleteEmployee
+  } = bindActionCreators(actionCreators, dispatch);
+
+  const state = useSelector((state: State) => state.employees)
+
   return (
     <div className="App">
       <Router>
         <div>
           <Switch>
             <Route exact path="/">
-              <h1>Main</h1>
+              <List />
             </Route>
             <Route path="/employees/:id/edit">
               <h1>Edit</h1>

@@ -1,0 +1,9 @@
+.card {
+    margin: 5px auto;
+    width: 20rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}

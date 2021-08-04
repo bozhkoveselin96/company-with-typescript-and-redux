@@ -2,5 +2,7 @@ import {combineReducers} from "redux";
 import {employeeReducer} from "./employeeReducer";
 
 export const reducers = combineReducers({
-    employee: employeeReducer
+    employees: employeeReducer
 });
+
+export type State = ReturnType<typeof reducers>
