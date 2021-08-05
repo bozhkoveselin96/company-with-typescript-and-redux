@@ -5,7 +5,7 @@ import {PlusCircle} from "react-bootstrap-icons";
 import {Employee} from "../Employee/Employee";
 import {useDispatch, useSelector} from "react-redux";
 import {EmployeeType} from "../../state/types/employee";
-import {InitialStateTypeEmployees} from "../../state/types/initialState";
+import {InitialStateType} from "../../state/types/initialState";
 import {getAllEmployees as getAllRequest} from "../../services/employeeService";
 import {getAllEmployees} from "../../state/action-creators/employeeActionCreators"
 
@@ -19,8 +19,8 @@ export const List: React.FC = () => {
             })
     }, [dispatch]);
 
-    const state: InitialStateTypeEmployees = useSelector((state: State) => state.employees);
-    const allEmployees: EmployeeType[] = state.allEmployees;
+    const state: InitialStateType = useSelector((state: State) => state.employees);
+    const allEmployees: EmployeeType[] = state.all;
 
 
     return (

@@ -3,6 +3,6 @@ export type EmployeeType = {
     first_name: string,
     last_name: string,
     email: string,
-    salary: number,
+    salary: string,
     avatar: string
 }

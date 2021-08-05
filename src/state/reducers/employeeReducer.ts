@@ -1,32 +1,50 @@
 import {Action} from "../actions";
 import {ActionTypes} from "../types/action";
-import {InitialStateTypeEmployees} from "../types/initialState";
+import {InitialStateType} from "../types/initialState";
+import {Simulate} from "react-dom/test-utils";
 
-const initialState: InitialStateTypeEmployees = {
-    allEmployees: [],
+const initialState: InitialStateType = {
+    all: [],
     selected: {
-        employee: {},
+        employee: {
+            avatar: "",
+            email: "",
+            first_name: "",
+            last_name: "",
+            salary: ""
+        },
         tasks: []
     },
 };
 
-export const employeeReducer = (state: InitialStateTypeEmployees = initialState, action: Action) => {
+export const employeeReducer = (state: InitialStateType = initialState, action: Action) => {
     switch (action.type) {
         case ActionTypes.GET_ALL:
-            return {...state, allEmployees: action.payload}
+            return {...state, all: action.employees}
         case ActionTypes.GET_ONE:
-            return state;
+            return {
+                ...state,
+                selected: {
+                    employee: action.employee,
+                    tasks: []
+                }
+            };
         case ActionTypes.CREATE:
-            // const allWithNew = [...state.allEmployees, action.payload];
-            // return {...state, allEmployees: allWithNew};
-            return state;
         case ActionTypes.UPDATE:
             return state;
         case ActionTypes.DELETE:
-            let allWithoutDeleted = state.allEmployees.filter((e) => e.id !== action.payload.id);
-            return {...state, allEmployees: allWithoutDeleted}
+            let allWithoutDeleted = state.all.filter((e) => e.id !== action.employee.id);
+            return {...state, all: allWithoutDeleted}
         case ActionTypes.CHANGE_FIELD:
-
+            return {
+                ...state, selected: {
+                    ...state.selected,
+                    employee: {
+                        ...state.selected.employee,
+                        [action.change.name]: action.change.value
+                    }
+                }
+            }
         default:
             return state;
     }

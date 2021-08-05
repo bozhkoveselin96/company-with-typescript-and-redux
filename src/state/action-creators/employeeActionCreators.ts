@@ -8,7 +8,7 @@ export const getAllEmployees = (employees: EmployeeType[]) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.GET_ALL,
-            payload: employees
+            employees: employees
         });
     };
 };
@@ -17,16 +17,15 @@ export const getEmployee = (employee: EmployeeType) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.GET_ONE,
-            payload: employee
+            employee: employee
         });
     };
 };
 
-export const createEmployee = (employee: EmployeeType) => {
+export const createEmployee = () => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.CREATE,
-            // payload: employee
         });
     };
 };
@@ -43,7 +42,7 @@ export const deleteEmployee = (employee: EmployeeType) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.DELETE,
-            payload: employee
+            employee: employee
         });
     };
 };
@@ -52,7 +51,7 @@ export const changeEmployeeField = (change: ChangeFieldType) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.CHANGE_FIELD,
-            payload: change
+            change: change
         });
     };
 };

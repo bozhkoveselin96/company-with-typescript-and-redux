@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import {List} from "./components/List/List";
 import {CreateEmployee} from "./components/CreateEmployee/CreateEmployee";
+import {EditEmployee} from "./components/EditEmployee/EditEmployee";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
               <List />
             </Route>
             <Route path="/employees/:id/edit">
-              <h1>Edit</h1>
+              <EditEmployee />
             </Route>
             <Route path="/employees/create">
               <CreateEmployee />

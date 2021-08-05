@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {useHistory, useParams} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {EmployeeType} from "../../state/types/employee";
-import {createEmployee, getEmployee as getEmployeeRequest} from "../../services/employeeService";
-import {createEmployee as create, getEmployee} from "../../state/action-creators/employeeActionCreators";
+import {createEmployee} from "../../services/employeeService";
+import {createEmployee as create} from "../../state/action-creators/employeeActionCreators";
 
 export const CreateEmployee: React.FC = () => {
     const history = useHistory();
@@ -12,7 +12,7 @@ export const CreateEmployee: React.FC = () => {
         first_name: "",
         last_name: "",
         email: "",
-        salary: 0,
+        salary: "",
         avatar: ""
     });
 
@@ -21,7 +21,7 @@ export const CreateEmployee: React.FC = () => {
         event.preventDefault();
         createEmployee(employee)
             .then(() => {
-                dispatch(create(employee));
+                dispatch(create());
                 history.push("/");
             });
     }
