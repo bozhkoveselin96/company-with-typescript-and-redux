@@ -5,5 +5,4 @@ export enum ActionTypes {
     UPDATE = "UPDATE",
     DELETE = "DELETE",
     CHANGE_FIELD = "CHANGE_FIELD",
-    UPDATE_ID = "UPDATE_ID"
 }

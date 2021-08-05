@@ -1,38 +1,30 @@
 import {Action} from "../actions";
 import {ActionTypes} from "../types/action";
-import {InitialStateType} from "../types/initialState";
-import {EmployeeType} from "../types/employee";
+import {InitialStateTypeEmployees} from "../types/initialState";
 
-const initialEmployee: EmployeeType = {
-    id: 0,
-    name: "",
-    age: 0,
-    salary: 0,
-    image: "",
+const initialState: InitialStateTypeEmployees = {
+    allEmployees: [],
+    selected: {
+        employee: {},
+        tasks: []
+    },
 };
 
-const initialState: InitialStateType = {
-    all: [],
-    selected: initialEmployee
-};
-
-export const employeeReducer = (state: InitialStateType = initialState, action: Action) => {
+export const employeeReducer = (state: InitialStateTypeEmployees = initialState, action: Action) => {
     switch (action.type) {
-        case ActionTypes.UPDATE_ID:
-            const maxId = action.employees.reduce((prev, current) => (prev.id > current.id) ? prev : current)
-            return {...state, lastId: maxId}
         case ActionTypes.GET_ALL:
-            return {...state, all: action.employees}
+            return {...state, allEmployees: action.payload}
         case ActionTypes.GET_ONE:
             return state;
         case ActionTypes.CREATE:
-
+            // const allWithNew = [...state.allEmployees, action.payload];
+            // return {...state, allEmployees: allWithNew};
             return state;
         case ActionTypes.UPDATE:
             return state;
         case ActionTypes.DELETE:
-            const update = state.all.filter((e) => e.id !== action.employee.id);
-            return {...state, all: update}
+            let allWithoutDeleted = state.allEmployees.filter((e) => e.id !== action.payload.id);
+            return {...state, allEmployees: allWithoutDeleted}
         case ActionTypes.CHANGE_FIELD:
 
         default:

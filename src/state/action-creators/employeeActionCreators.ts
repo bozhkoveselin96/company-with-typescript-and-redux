@@ -2,22 +2,13 @@ import {ActionTypes} from "../types/action";
 import {EmployeeType} from "../types/employee";
 import {Dispatch} from "redux";
 import {Action} from "../actions";
-import {EmployeeFieldType} from "../types/field";
-
-export const updateLastId = () => {
-    return (dispatch: Dispatch<Action>) => {
-        dispatch({
-            type: ActionTypes.UPDATE_ID,
-            employees: employees
-        });
-    };
-};
+import {ChangeFieldType} from "../types/field";
 
 export const getAllEmployees = (employees: EmployeeType[]) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.GET_ALL,
-            employees: employees
+            payload: employees
         });
     };
 };
@@ -35,7 +26,7 @@ export const createEmployee = (employee: EmployeeType) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.CREATE,
-            employee: employee
+            // payload: employee
         });
     };
 };
@@ -52,16 +43,16 @@ export const deleteEmployee = (employee: EmployeeType) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.DELETE,
-            employee: employee
+            payload: employee
         });
     };
 };
 
-export const changeEmployeeField = (change: EmployeeFieldType) => {
+export const changeEmployeeField = (change: ChangeFieldType) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionTypes.CHANGE_FIELD,
-            change: change
+            payload: change
         });
     };
 };

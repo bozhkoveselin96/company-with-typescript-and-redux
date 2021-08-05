@@ -1,24 +1,20 @@
 import {ActionTypes} from "../types/action";
 import {EmployeeType} from "../types/employee";
-
-interface UpdateIdAction {
-    type: ActionTypes.UPDATE_ID,
-    employees: EmployeeType[]
-}
+import {TaskType} from "../types/task";
 
 interface GetAllAction {
     type: ActionTypes.GET_ALL,
-    employees: EmployeeType[]
+    payload: EmployeeType[] | TaskType[]
 }
 
 interface GetOneAction {
     type: ActionTypes.GET_ONE,
-    payload: EmployeeType
+    payload: EmployeeType | TaskType
 }
 
 interface CreateAction {
     type: ActionTypes.CREATE,
-    // payload: {}
+    // payload: EmployeeType | TaskType
 }
 
 interface UpdateAction {
@@ -28,12 +24,12 @@ interface UpdateAction {
 
 interface DeleteAction {
     type: ActionTypes.DELETE,
-    employee: EmployeeType
+    payload: EmployeeType | TaskType
 }
 
 interface ChangeFieldAction {
-    employees: any;
-    type: ActionTypes.CHANGE_FIELD
+    type: ActionTypes.CHANGE_FIELD,
+    payload: any
 }
 
-export type Action = GetAllAction | GetOneAction | CreateAction | UpdateAction | DeleteAction | ChangeFieldAction | UpdateIdAction;
+export type Action = GetAllAction | GetOneAction | CreateAction | UpdateAction | DeleteAction | ChangeFieldAction;

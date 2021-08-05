@@ -1,7 +1,14 @@
 import {EmployeeType} from "./employee";
+import {TaskType} from "./task";
 
-export type InitialStateType = {
-    all: EmployeeType[] | [],
-    selected: EmployeeType | {},
-    lastId: number
+export type InitialStateTypeEmployees = {
+    allEmployees: EmployeeType[] | [],
+    selected: {
+        employee: EmployeeType | {},
+        tasks: []
+    } | {},
+}
+
+export type InitialStateTypeTasks = {
+    allTasks: TaskType[]
 }

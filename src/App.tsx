@@ -6,23 +6,9 @@ import {
   Route,
 } from "react-router-dom";
 import {List} from "./components/List/List";
-import {useDispatch, useSelector} from "react-redux";
-import {bindActionCreators} from "redux";
-import {actionCreators, State} from "./state"
+import {CreateEmployee} from "./components/CreateEmployee/CreateEmployee";
 
 function App() {
-  const dispatch = useDispatch();
-
-  const {
-      getAllEmployees,
-      getEmployee,
-      createEmployee,
-      updateEmployee,
-      deleteEmployee
-  } = bindActionCreators(actionCreators, dispatch);
-
-  const state = useSelector((state: State) => state.employees)
-
   return (
     <div className="App">
       <Router>
@@ -35,7 +21,7 @@ function App() {
               <h1>Edit</h1>
             </Route>
             <Route path="/employees/create">
-              <h1>Create</h1>
+              <CreateEmployee />
             </Route>
           </Switch>
         </div>

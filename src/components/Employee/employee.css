@@ -1,9 +1,9 @@
-.card {
-    margin: 5px auto;
-    width: 20rem;
-}
-
-.actions {
+.card-footer {
     display: flex;
     justify-content: space-between;
+}
+
+.card {
+    max-width: 25rem;
+    margin: auto;
 }
